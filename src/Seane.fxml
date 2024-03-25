@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+    <center>
+        <VBox alignment="CENTER" spacing="10">
+            <TextField fx:id="inputField" promptText="Type something here"/>
+            <Button text="Display Text" onAction="#displayText"/>
+            <Label fx:id="displayLabel" />
+        </VBox>
+    </center>
+</BorderPane>
