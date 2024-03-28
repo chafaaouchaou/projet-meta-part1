@@ -13,22 +13,6 @@ public class Main extends Application  {
     @Override
     public void start(Stage primaryStage) {
       primaryStage.setTitle("MKP");
-      //  btn= new Button();
-      //   btn.setText("Say 'Hello World'");
-        // btn.setOnAction(this);
-        // btn.setOnAction(new EventHandler<ActionEvent>() {
- 
-        //     @Override
-        //     public void handle(ActionEvent event) {
-        //         System.out.println("Hello World!");
-        //     }
-        // });
-        
-        // StackPane root = new StackPane();
-        // root.getChildren().add(btn);
-        // Scene scene = new Scene(root,300,250);
-        // primaryStage.setScene(scene);
-        // primaryStage.show();
   
   try {
     Parent root = FXMLLoader.load(getClass().getResource("final.fxml"));
@@ -51,13 +35,6 @@ public class Main extends Application  {
   
 
 
-// @Override
-// public void handle(ActionEvent event) {
-//   if (event.getSource() == btn) {
-//     System.out.println("Hello World!");
-    
-//   }
-// }
 
 public static void main(String[] args) {
   launch(args);

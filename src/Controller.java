@@ -148,6 +148,28 @@ public class Controller {
         lable2.setText("");
         chemain = "";
 
+        lable11.setText("");
+    
+        
+        lable111.setText("");
+    
+        
+    
+        
+        lable21.setText("");
+    
+        
+        lable211.setText("");
+    
+        
+        labtemp.setText("");
+    
+        
+        labtemp1.setText("");
+    
+        
+        labtemp11.setText("");
+
     }
 
     @FXML
@@ -168,19 +190,33 @@ public class Controller {
         try {
             int nbItemsInt = Integer.parseInt(nbitemss);
             int nbsacsInt = Integer.parseInt(nbsacss);
-            System.out.println("nbItemsInt: " + nbItemsInt);
-            System.out.println("nbsacsInt: " + nbsacsInt);
-            nbsacsInt+=1;
             
-             sacs =Data.getSacs(nbsacsInt);
-             items = Data.getItems(nbItemsInt);
-             System.out.println("sacs: " + sacs.size());
-             System.out.println("items: " + items.size());
-             Obj1 node1 = new Obj1(null, null, 0,0,0);
+            sacs =Data.getSacs(nbsacsInt,"src\\csv\\sacs.csv");
+            sacs.add(new Sac( nbsacsInt, 0));
+            items = Data.getItems(nbItemsInt,"src\\csv\\items.csv");
+
+
+            for (Sac sac : sacs) {
+                System.out.println("sac: " + sac.nom + " - " + sac.Capasite);
+                
+            }
+
+            for (Item item : items) {
+                System.out.println("item: " + item.nom + " - " + item.poids + " - " + item.valeur);
+                
+            }
+
+            int totalv=0;
+            for (Item item : items) {
+                totalv+=item.valeur;
+            }
+    
+            Obj1 node1 = new Obj1(null, null, 0,0,totalv);
+          
 
              
                  startTime = System.nanoTime();
-                 Retresult1 bestresult = MkpAstar.Starsolver(node1,items.size(),sacs,items,bestcomboob1,Bestbenef);;
+                 Retresult1 bestresult = MkpAstar.Starsolver(node1,items.size(),sacs,items,bestcomboob1,Bestbenef);
                  endTime = System.nanoTime();
 
            duration = endTime - startTime;
@@ -227,22 +263,24 @@ public class Controller {
         try {
             int nbItemsInt = Integer.parseInt(nbitemss);
             int nbsacsInt = Integer.parseInt(nbsacss);
-            System.out.println("nbItemsInt: " + nbItemsInt);
-            System.out.println("nbsacsInt: " + nbsacsInt);
+            // System.out.println("nbItemsInt: " + nbItemsInt);
+            // System.out.println("nbsacsInt: " + nbsacsInt);
             nbsacsInt+=1;
             
-             sacs =Data.getSacs(nbsacsInt);
-             items = Data.getItems(nbItemsInt);
-             System.out.println("sacs: " + sacs.size());
-                System.out.println("items: " + items.size());
+             sacs =Data.getSacs(nbsacsInt,"src\\csv\\sacs.csv");
+             items = Data.getItems(nbItemsInt,"src\\csv\\items.csv");
+             
+            //  System.out.println("sacs: " + sacs.size());
+            //     System.out.println("items: " + items.size());
              
                  startTime = System.nanoTime();
+                 
                  Retresult bestresult = MkpBfs.bfs(node,items.size(),sacs,items,bestcombo,Bestbenef );
                  endTime = System.nanoTime();
 
            duration = endTime - startTime;
            labtemp.setText("Time: "+duration/1000000+" ms");
-           System.out.println("Bestbenef "+bestresult.value);
+        //    System.out.println("Bestbenef "+bestresult.value);
 
            lable1.setText("Best value "+bestresult.value);
             
@@ -251,7 +289,7 @@ public class Controller {
                if (obj.sac.nom!=sacs.size()-1) {
                    
                 chemain=chemain+"S " +obj.sac.nom +" - "+"I " +obj.item.nom  +"\n";
-               System.out.println("S " +obj.sac.nom +" - "+"I " +obj.item.nom  );
+            //    System.out.println("S " +obj.sac.nom +" - "+"I " +obj.item.nom  );
            }
            lable2.setText(chemain);
 
@@ -292,8 +330,12 @@ public class Controller {
             System.out.println("nbsacsInt: " + nbsacsInt);
             nbsacsInt+=1;
             
-             sacs =Data.getSacs(nbsacsInt);
-             items = Data.getItems(nbItemsInt);
+             sacs =Data.getSacs(nbsacsInt,"src\\csv\\sacs.csv");
+             items = Data.getItems(nbItemsInt,"src\\csv\\items.csv");
+
+
+             
+
              System.out.println("sacs: " + sacs.size());
                 System.out.println("items: " + items.size());
              
