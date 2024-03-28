@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
@@ -11,7 +12,6 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
    <top>
@@ -49,6 +49,8 @@
             <TextField fx:id="nbsacs" />
             <Label text="Nombre d'iteme " />
             <TextField fx:id="nbitems" />
+            <Label layoutX="44.0" layoutY="60.0" text="Profondur dfs" />
+            <TextField fx:id="profdfs" layoutX="15.0" layoutY="77.0" />
             <HBox alignment="CENTER" prefHeight="50.0" prefWidth="159.0" spacing="7.0">
                <children>
                   <Button mnemonicParsing="false" onAction="#startbfs" text="BFS" />
@@ -72,6 +74,9 @@
             <Insets left="5.0" right="5.0" top="8.0" />
          </padding>
       </VBox>
+     
+
+
    </left>
    <center>
       <HBox BorderPane.alignment="CENTER">
@@ -124,4 +129,14 @@
          </children>
       </HBox>
    </center>
+   <right>
+      <VBox alignment="TOP_CENTER" prefHeight="375.0" prefWidth="159.0" BorderPane.alignment="CENTER">
+         <children>
+             <Label text="Sacs Files" />
+             <ListView fx:id="sacsListView" />
+             <Label text="Items Files" />
+             <ListView fx:id="itemsListView" />
+         </children>
+     </VBox>
+   </right>
 </BorderPane>

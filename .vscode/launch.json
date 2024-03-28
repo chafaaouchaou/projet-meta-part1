@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Detectcsv",
+            "request": "launch",
+            "mainClass": "Detectcsv",
+            "projectName": "javafxfirst_a2d5e468"
+        },
+        {
+            "type": "java",
             "name": "MkpBfs",
             "request": "launch",
             "mainClass": "MkpBfs",

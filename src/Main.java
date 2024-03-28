@@ -12,6 +12,7 @@ public class Main extends Application  {
   Button btn;
     @Override
     public void start(Stage primaryStage) {
+      setUserAgentStylesheet(STYLESHEET_CASPIAN);
       primaryStage.setTitle("MKP");
   
   try {

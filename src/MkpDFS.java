@@ -94,7 +94,9 @@ public class MkpDFS {
     // }///////////////////////////////////////////////////////////////////////////////////////////////////////
 
     static Retresult dfs(Obj startNode, int limit, List<Sac> sacs, List<Item> items, List<Obj> bestcombo,
-            int Bestbenef) {
+            int Bestbenef,int profdfssInt) {
+
+                System.out.println("la valeur d patata est "+profdfssInt);
 
         Stack<Obj> stack = new Stack<>();
         stack.push(startNode);
@@ -102,6 +104,12 @@ public class MkpDFS {
         while (!stack.isEmpty()) {
             Obj currentNode = stack.pop();
             List<Obj> currentPath = currentNode.getChemain();
+
+            if (profdfssInt== currentNode.profondeur) {
+                return new Retresult(Bestbenef,bestcombo);
+
+                
+            }
 
             if (currentNode.profondeur == limit) {
 
